@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+    <title>报名信息</title>
+</head>
+<body>
+<div th:if="${not #lists.isEmpty(studentList)}">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">报名列表信息</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed table-bordered table-hover tab">
+                <thead>
+                <tr>
+                    <th>学生姓名</th>
+                    <th>电话号码</th>
+                    <th>学院</th>
+                    <th>年级</th>
+                    <th>班级</th>
+                    <th>报名时间</th>
+                    <th>自我介绍</th>
+                    <th>获得荣誉</th>
+
+                </tr>
+                </thead>
+                <tbody id="tbody" th:each="person:${studentList}">
+                    <tr>
+                        <td th:text="${person.studentName}"></td>
+                        <td th:text="${person.phoneNumber}"></td>
+                        <td th:text="${person.college}"></td>
+                        <td th:text="${person.grade}"></td>
+                        <td th:text="${person.className}"></td>
+                        <td th:text="${person.signUpTime}"></td>
+                        <td th:text="${person.selfIntroduction}"></td>
+                        <td th:text="${person.honor}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<button id="getFile" onclick="getFile()">获取Excel文件</button>
+<script th:src="@{jquery-1.9.1.min.js}" type="text/javascript"></script>
+<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+       function getFile() {
+           $.get("/getFile",function (data) {
+               alert(data);
+           });
+       }
+</script>
+</body>
+</html>
