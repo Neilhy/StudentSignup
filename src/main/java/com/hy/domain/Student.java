@@ -16,8 +16,14 @@ public class Student {
     @Column(name = "studentId")
     private Long id;
 
-    @Column(nullable = false,unique = true)
-    private Long phoneNumber;
+    private String sex;
+    private String birthday;
+    private String sushe;
+    private String qq;
+    private String expectation;
+
+    @Column(nullable = false)
+    private String phoneNumber;
 
     @Column(nullable = false,length = 20)
     private String studentName;
@@ -45,7 +51,12 @@ public class Student {
     public Student() {
     }
 
-    public Student(Long phoneNumber, String studentName, String college, String className, Short grade, String firstDpt, String secondDpt, Date signUpTime, String selfIntroduction, String honor) {
+    public Student(String sex, String birthday, String sushe, String qq, String expectation, String phoneNumber, String studentName, String college, String className, Short grade, String firstDpt, String secondDpt, Date signUpTime, String selfIntroduction, String honor) {
+        this.sex = sex;
+        this.birthday = birthday;
+        this.sushe = sushe;
+        this.qq = qq;
+        this.expectation = expectation;
         this.phoneNumber = phoneNumber;
         this.studentName = studentName;
         this.college = college;
@@ -66,11 +77,51 @@ public class Student {
         this.id = id;
     }
 
-    public Long getPhoneNumber() {
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getSushe() {
+        return sushe;
+    }
+
+    public void setSushe(String sushe) {
+        this.sushe = sushe;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getExpectation() {
+        return expectation;
+    }
+
+    public void setExpectation(String expectation) {
+        this.expectation = expectation;
+    }
+
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

@@ -27,8 +27,8 @@ public class SignUpController {
 
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    public Long addStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
+    public void addStudent(@RequestBody Student student) {
+        studentService.addStudent(student);
     }
 
     @RequestMapping(value = "/LLogin", method = RequestMethod.POST)
@@ -56,20 +56,25 @@ public class SignUpController {
         for (Student student : students) {
             ArrayList<String> row = new ArrayList<>();
             row.add(student.getStudentName());
-            row.add(student.getPhoneNumber().toString());
+            row.add(student.getPhoneNumber());
+            row.add(student.getSex());
             row.add(student.getCollege());
             row.add(student.getGrade().toString());
             row.add(student.getClassName());
             row.add(student.getFirstDpt());
             row.add(student.getSecondDpt());
+            row.add(student.getBirthday());
+            row.add(student.getSushe());
+            row.add(student.getQq());
             row.add(student.getSignUpTime().toString());
             row.add(student.getSelfIntroduction());
             row.add(student.getHonor());
+            row.add(student.getExpectation());
             rows.add(row);
         }
 
         ArrayList<String> headers = new ArrayList<>();
-        String[]header={"学生姓名","电话号码","学院","年级","班级","第一志向部门","第二志向部门","报名时间","自我介绍","获得荣誉"};
+        String[]header={"学生姓名","电话号码","性别","学院","年级","班级","第一志向部门","第二志向部门","生日","宿舍","QQ","报名时间","自我介绍","获得荣誉","对部门的期待"};
         for (String h : header) {
             headers.add(h);
         }

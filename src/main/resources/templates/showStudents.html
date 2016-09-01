@@ -20,14 +20,19 @@
                 <tr>
                     <th>学生姓名</th>
                     <th>电话号码</th>
+                    <th>性别</th>
                     <th>学院</th>
                     <th>年级</th>
                     <th>班级</th>
                     <th>第一志向</th>
                     <th>第二志向</th>
+                    <th>生日</th>
+                    <th>宿舍</th>
+                    <th>QQ</th>
                     <th>报名时间</th>
                     <th>自我介绍</th>
                     <th>获得荣誉</th>
+                    <th>对部门的期待</th>
 
                 </tr>
                 </thead>
@@ -35,14 +40,19 @@
                     <tr>
                         <td th:text="${person.studentName}"></td>
                         <td th:text="${person.phoneNumber}"></td>
+                        <td th:text="${person.sex}"></td>
                         <td th:text="${person.college}"></td>
                         <td th:text="${person.grade}"></td>
                         <td th:text="${person.className}"></td>
                         <td th:text="${person.firstDpt}"></td>
                         <td th:text="${person.secondDpt}"></td>
+                        <td th:text="${person.birthday}"></td>
+                        <td th:text="${person.sushe}"></td>
+                        <td th:text="${person.qq}"></td>
                         <td th:text="${person.signUpTime}"></td>
                         <td th:text="${person.selfIntroduction}"></td>
                         <td th:text="${person.honor}"></td>
+                        <td th:text="${person.expectation}"></td>
                     </tr>
                 </tbody>
             </table>

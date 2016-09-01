@@ -10,5 +10,5 @@ import java.util.List;
 public interface StudentService {
     List<Student> getAllStudents();
 
-    Long addStudent(Student student);
+    void addStudent(Student student);
 }
