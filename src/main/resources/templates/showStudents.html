@@ -50,7 +50,7 @@
 <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
 <script type="text/javascript">
        function getFile() {
-           $.get("/getFile");
+           window.open('/getFile', 'newWindow', 'height=400,width=700');
        }
 </script>
 </body>

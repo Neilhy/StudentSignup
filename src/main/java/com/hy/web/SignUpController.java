@@ -10,14 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.System.out;
 
 /**
  * Created by NeilHY on 2016/8/31.
@@ -41,7 +37,6 @@ public class SignUpController {
     }
     @RequestMapping(value = "/getFile",method = RequestMethod.GET)
     public String getFile(HttpServletRequest request, HttpServletResponse response) {
-        out.println("开始获取Excel");
         List<Student> students=studentService.getAllStudents();
         ArrayList<ArrayList> rows = new ArrayList<>();
         for (Student student : students) {
@@ -64,17 +59,13 @@ public class SignUpController {
         }
 
         try {
-//            FileOutputStream out = new FileOutputStream("F:/students.xls");
             OutputStream out = response.getOutputStream();
             response.reset();
             response.setContentType("application/vnd.ms-excel");
-            response.setHeader("Content-disposition", "attachment;filename="+ URLEncoder.encode("student.xls", "utf-8"));
             ExcelFileGenerator generator = new ExcelFileGenerator(headers, rows);
             generator.expordExcel(out);
             System.setOut(new PrintStream(out));
-            if (out != null) {
-                out.close();
-            }
+            out.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
