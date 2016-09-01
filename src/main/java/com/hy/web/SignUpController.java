@@ -60,6 +60,8 @@ public class SignUpController {
             row.add(student.getCollege());
             row.add(student.getGrade().toString());
             row.add(student.getClassName());
+            row.add(student.getFirstDpt());
+            row.add(student.getSecondDpt());
             row.add(student.getSignUpTime().toString());
             row.add(student.getSelfIntroduction());
             row.add(student.getHonor());
@@ -67,7 +69,7 @@ public class SignUpController {
         }
 
         ArrayList<String> headers = new ArrayList<>();
-        String[]header={"学生姓名","电话号码","学院","年级","班级","报名时间","自我介绍","获得荣誉"};
+        String[]header={"学生姓名","电话号码","学院","年级","班级","第一志向部门","第二志向部门","报名时间","自我介绍","获得荣誉"};
         for (String h : header) {
             headers.add(h);
         }

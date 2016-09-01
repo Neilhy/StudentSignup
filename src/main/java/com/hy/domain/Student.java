@@ -31,7 +31,12 @@ public class Student {
     @Column(nullable = false)
     private Short grade;
 
-    private Date signUpTime=new Date();
+    @Column(nullable = false)
+    private String firstDpt;
+
+    private String secondDpt;
+
+    private Date signUpTime = new Date();
 
     private String selfIntroduction; //自我介绍
 
@@ -40,12 +45,14 @@ public class Student {
     public Student() {
     }
 
-    public Student(Long phoneNumber, String studentName, String college, String className, Short grade, String selfIntroduction, String honor) {
+    public Student(Long phoneNumber, String studentName, String college, String className, Short grade, String firstDpt, String secondDpt, Date signUpTime, String selfIntroduction, String honor) {
         this.phoneNumber = phoneNumber;
         this.studentName = studentName;
         this.college = college;
         this.className = className;
         this.grade = grade;
+        this.firstDpt = firstDpt;
+        this.secondDpt = secondDpt;
         this.signUpTime = new Date();
         this.selfIntroduction = selfIntroduction;
         this.honor = honor;
@@ -97,6 +104,22 @@ public class Student {
 
     public void setGrade(Short grade) {
         this.grade = grade;
+    }
+
+    public String getFirstDpt() {
+        return firstDpt;
+    }
+
+    public void setFirstDpt(String firstDpt) {
+        this.firstDpt = firstDpt;
+    }
+
+    public String getSecondDpt() {
+        return secondDpt;
+    }
+
+    public void setSecondDpt(String secondDpt) {
+        this.secondDpt = secondDpt;
     }
 
     public Date getSignUpTime() {

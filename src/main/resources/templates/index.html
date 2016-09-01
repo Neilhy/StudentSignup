@@ -26,6 +26,8 @@
                             college:$('#college').val(),
                             className:$('#class').val(),
                             grade:$('#grade').val(),
+                            firstDpt:$('#select1').find('option:selected').val(),
+                            secondDpt:$('#select2').find('option:selected').val(),
                             selfIntroduction:$('#self').val(),
                             honor:$('#honor').val()
                         }),
@@ -58,10 +60,32 @@
  </div> -->
 
     <p class="logo">
-    <img class="bottom" border="0" src="logo.png" width="65px" height="28px" />技术部2016招新
+    <img class="bottom" border="0" src="logo.png" width="65px" height="28px" />腾讯俱乐部招新
     </p>
        
     <h4>还不快到碗里来ヽ(•̀ω•́ )ゝ </h4>
+      <p class="choice_item_info">第一志愿  第二志愿</p>
+      <fieldset>
+              <select id="select1" name="choice1" class=".choice">
+                  <option value="宣传部" selected="selected">宣传部</option>
+                  <option value="ACM竞赛部">ACM竞赛部</option>
+                  <option value="组织策划部">组织策划部</option>
+                  <option value="资源拓展部">资源拓展部</option>
+                  <option value="项目技术部">项目技术部(需有编程基础)</option>
+              </select>
+      </fieldset>
+
+      <fieldset>
+              <select id="select2" name="choice2" class=".choice">
+                  <option value="无" selected="selected">---------------</option>
+                  <option value="宣传部">宣传部</option>
+                  <option value="ACM竞赛部" >ACM竞赛部</option>
+                  <option value="组织策划部">组织策划部</option>
+                  <option value="资源拓展部">资源拓展部</option>
+                  <option value="项目技术部">项目技术部(需有编程基础)</option>
+              </select>
+      </fieldset>
+
     <fieldset>
       <input id="name" placeholder="姓 名" type="text" tabindex="1" required="required" autofocus="autofocus" />
     </fieldset>
@@ -92,9 +116,12 @@
       <fieldset>
           <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
       </fieldset>
-    <br>
-    <img src="../info.jpg" width="100%"/>
-      </br>
+      <br/>
+      <p class="ad">据说长的帅的都会关注   </p>
+      <p class="ad"> ↓↓↓(〃ω〃)↘↘↘</p>
+      <br/>
+      <br/>
+        <img src="../info.jpg" width="100%"/>
   </form>
 
 </div>
