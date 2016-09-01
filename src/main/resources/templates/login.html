@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>登录页面</title>
+    <link rel="stylesheet" th:href="@{bootstrap/css/bootstrap.min.css}"/>
+    <style type="text/css">
+        body{
+            padding-top: 50px;
+        }
+        .starter-template{
+            padding:40px 15px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">腾讯创新俱乐部</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/}">报名</a> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <div class="starter-template">
+        <p th:if="${error}" class="bg-danger">有错误，请重试</p>
+        <h2>登  录</h2>
+        <form name="form" th:action="@{/LLogin}" action="/LLogin" method="post">
+            <div class="form-group">
+                <fieldset>
+                <label for="username">账号</label>
+                <input type="text"  name="name" value="" placeholder="账号" autofocus="autofocus" required="required"/>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                <label for="password">密码</label>
+                <input type="password"  name="pwd" placeholder="密码" autofocus="autofocus" required="required"/>
+                </fieldset>
+            </div>
+            <input type="submit" id="login" value="Login" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

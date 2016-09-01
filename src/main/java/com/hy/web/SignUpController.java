@@ -1,5 +1,6 @@
 package com.hy.web;
 
+import com.hy.domain.Admin;
 import com.hy.domain.Student;
 import com.hy.service.ExcelFileGenerator;
 import com.hy.service.StudentService;
@@ -8,12 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by NeilHY on 2016/8/31.
@@ -29,14 +31,33 @@ public class SignUpController {
         return studentService.addStudent(student);
     }
 
-    @RequestMapping(value = "/get")
-    public String getStudents(Model model) {
-        List<Student> students=studentService.getAllStudents();
-        model.addAttribute("studentList", students);
-        return "showStudents";
+    @RequestMapping(value = "/LLogin", method = RequestMethod.POST)
+    public String getStudents(Admin admin,Model model) {
+        if (admin.getName().equals("admin") && admin.getPwd().equals("scut")) {
+            List<Student> students=studentService.getAllStudents();
+            if (model.containsAttribute("studentList")) {
+                Map<String, List<Student>> map = new HashMap<>();
+                map.put("studentList",students);
+                map.put("error", null);
+                model.mergeAttributes(map);
+            }else {
+                model.addAttribute("studentList", students);
+            }
+            return "showStudents";
+        }else {
+            if (model.containsAttribute("error")) {
+                Map<String, String> map = new HashMap<>();
+                map.put("error", "错误");
+                model.mergeAttributes(map);
+            }else{
+                model.addAttribute("error", "错误");
+            }
+            return "login";
+        }
     }
+
     @RequestMapping(value = "/getFile",method = RequestMethod.GET)
-    public String getFile(HttpServletRequest request, HttpServletResponse response) {
+    public String getFile(HttpServletResponse response) {
         List<Student> students=studentService.getAllStudents();
         ArrayList<ArrayList> rows = new ArrayList<>();
         for (Student student : students) {
