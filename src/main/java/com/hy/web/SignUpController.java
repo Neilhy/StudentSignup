@@ -35,14 +35,7 @@ public class SignUpController {
     public String getStudents(Admin admin,Model model) {
         if (admin.getName().equals("admin") && admin.getPwd().equals("scut")) {
             List<Student> students=studentService.getAllStudents();
-            if (model.containsAttribute("studentList")) {
-                Map<String, List<Student>> map = new HashMap<>();
-                map.put("studentList",students);
-                map.put("error", null);
-                model.mergeAttributes(map);
-            }else {
-                model.addAttribute("studentList", students);
-            }
+            model.addAttribute("studentList", students);
             return "showStudents";
         }else {
             if (model.containsAttribute("error")) {
