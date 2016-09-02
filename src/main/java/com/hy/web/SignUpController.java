@@ -27,8 +27,8 @@ public class SignUpController {
 
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
-    public void addStudent(@RequestBody Student student) {
-        studentService.addStudent(student);
+    public String addStudent(@RequestBody Student student) {
+        return studentService.addStudent(student);
     }
 
     @RequestMapping(value = "/LLogin", method = RequestMethod.POST)

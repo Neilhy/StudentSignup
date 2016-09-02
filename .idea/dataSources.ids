@@ -14,54 +14,60 @@
         <data-type>bigint(20)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="4" parent="2" name="class_name">
+      <column id="4" parent="2" name="birthday">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="5" parent="2" name="class_name">
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="5" parent="2" name="college">
+      <column id="6" parent="2" name="college">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="6" parent="2" name="grade">
+      <column id="7" parent="2" name="expectation">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="8" parent="2" name="first_dpt">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="9" parent="2" name="grade">
         <mandatory>1</mandatory>
         <data-type>smallint(6)</data-type>
       </column>
-      <column id="7" parent="2" name="honor">
+      <column id="10" parent="2" name="honor">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="8" parent="2" name="phone_number">
+      <column id="11" parent="2" name="phone_number">
         <mandatory>1</mandatory>
-        <data-type>bigint(20)</data-type>
-      </column>
-      <column id="9" parent="2" name="self_introduction">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="10" parent="2" name="sign_up_time">
-        <data-type>datetime</data-type>
-      </column>
-      <column id="11" parent="2" name="student_name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(20)</data-type>
-      </column>
-      <column id="12" parent="2" name="first_dpt">
-        <mandatory>1</mandatory>
+      <column id="12" parent="2" name="qq">
         <data-type>varchar(255)</data-type>
       </column>
       <column id="13" parent="2" name="second_dpt">
         <data-type>varchar(255)</data-type>
       </column>
-      <index id="14" parent="2" name="UK_i3xrfnuv2icsd1vhvn6c108ec">
-        <columns>phone_number</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="15" parent="2" name="PRIMARY">
+      <column id="14" parent="2" name="self_introduction">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="15" parent="2" name="sex">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="16" parent="2" name="sign_up_time">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="17" parent="2" name="student_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="18" parent="2" name="sushe">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="19" parent="2" name="PRIMARY">
         <columns>student_id</columns>
         <primary>1</primary>
-      </key>
-      <key id="16" parent="2" name="UK_i3xrfnuv2icsd1vhvn6c108ec">
-        <columns>phone_number</columns>
-        <underlying-index>UK_i3xrfnuv2icsd1vhvn6c108ec</underlying-index>
       </key>
     </database-model>
   </data-source>

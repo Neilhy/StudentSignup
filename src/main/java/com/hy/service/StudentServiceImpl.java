@@ -21,9 +21,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void addStudent(Student student) {
+    public String addStudent(Student student) {
 //        if (null == studentRepository.findByPhoneNumber(student.getPhoneNumber())) {
-            studentRepository.save(student);
+            return studentRepository.save(student).getPhoneNumber();
 //        }
 //        return null;
     }
